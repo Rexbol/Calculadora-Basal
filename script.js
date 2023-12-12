@@ -14,6 +14,7 @@ let calculadora = document.getElementById("calcular");
 const ERROR = document.getElementById("error");
 const FLU = document.getElementById('flu');
 const MAN = document.getElementById('man');
+const MET = document.getElementById('met');
 let dato;
 let peso; 
 calcular.addEventListener("click", () =>{//Esto hace que el programa sepa cuando se hace click al boton
@@ -23,6 +24,7 @@ calcular.addEventListener("click", () =>{//Esto hace que el programa sepa cuando
         ERROR.style.display = "block";//Esto hace que se muestre el mensaje de error
         FLU.style.display = 'none';
         MAN.style.display = 'none';
+        MET.style.display = 'none';
         return; //Esto hace que el programa no ejecute el resto del codigo
     }
     else{
@@ -31,7 +33,9 @@ calcular.addEventListener("click", () =>{//Esto hace que el programa sepa cuando
         let mantenimiento = flujo*1.5;
         FLU.innerHTML = flujo + ' cc/hr';
         MAN.innerHTML = 'm+m/2 ' + mantenimiento + ' cc/hr';
+        MET.innerHTML = peso <=30 ? "(Se utilizo el Método Holliday-Segar)" : "(Se utilizo el Método de superficie corporal)";
         FLU.style.display = 'block';
         MAN.style.display = 'block';
+        MET.style.display = 'block';
     }
 })
